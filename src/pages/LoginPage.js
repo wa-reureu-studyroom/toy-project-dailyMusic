@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import { useNavigate } from 'react-router';
 import './LoginPage.css';
 import GoogleBtn from '../assets/ButtonGoogle.png';
 import FacebookBtn from '../assets/ButtonFacebook.png';
@@ -13,6 +14,10 @@ const LoginPage = () => {
         pw : '',
     })
 
+    const [isIDPlaceholder, setIsIDPlaceholder] = useState(true);
+    const [isPwPlaceholder, setIsPwPlaceholder] = useState(true);
+    const navigate = useNavigate();
+
     const changeIDValue = (e) => {
         setIsLoginInfo({
             ...isLoginInfo,
@@ -26,6 +31,17 @@ const LoginPage = () => {
             pw : e.target.value,
         })
     }
+
+    const handleOnKeyPress = (e) => {
+        if(e.key === 'Enter'){
+            handleOnClick();
+        }
+    }
+
+    const handleOnClick = () => {
+        navigate('/');
+    }
+
     return (
         <section className='loginPageEntire'>
             <div className='loginLeft'>
@@ -35,10 +51,10 @@ const LoginPage = () => {
                 <div className='loginPart'>
                     <h1 className='loginTitle'>Login</h1>
                     <div className='loginInputAll'>
-                        <input className='loginInput' type='text' placeholder='ID' value={isLoginInfo.id} onChange={changeIDValue}></input>
-                        <input className='loginInput' type='text' placeholder='Password' value={isLoginInfo.pw} onChange={changePWValue}></input>
+                        <input className='loginInput' type='text' placeholder={isIDPlaceholder ? 'ID' : ''} value={isLoginInfo.id} onChange={changeIDValue} onFocus={() => {setIsIDPlaceholder(false)}} onBlur={() => {setIsIDPlaceholder(true)}}></input>
+                        <input className='loginInput' type='text' placeholder={isPwPlaceholder ? 'Password' : ''} value={isLoginInfo.pw} onChange={changePWValue} onFocus={() => {setIsPwPlaceholder(false)}} onBlur={() => {setIsPwPlaceholder(true)}}></input>
                     </div>
-                    <span className='loginCnt loginSelect'>OR</span>
+                    <span className='loginCnt loginSelect' >OR</span>
                     <ul className='SSOList'>
                         <li className='loginSSO'><img src={GoogleBtn} alt="GoogleButton" /></li>
                         <li className='loginSSO'><img src={FacebookBtn} alt="FacebookButton" /></li>
