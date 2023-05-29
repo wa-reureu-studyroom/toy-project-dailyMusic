@@ -1,7 +1,7 @@
 
 import React from 'react'
 import PlayList from './component/PlayList.js';
-import Weather from './component/weather.js';
+import Weather from './component/Weather.js';
 
 
 
