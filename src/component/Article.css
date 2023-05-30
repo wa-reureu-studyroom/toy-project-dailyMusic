@@ -1,0 +1,64 @@
+.article-container{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    justify-content:space-between;
+    align-items:center;
+    /* background-color:rgba(255,255,255,21%); */
+    width: 500px;
+    height: 135px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border:1px solid white;
+}
+
+.article-container div{
+    /* background-color:rgba(255,255,255,21%); */
+}
+
+.article-userImg img{
+    border-radius:50px;
+    width: 59px;
+    height: 59px;
+}
+
+.article-writeBox,.article-likes{
+    height: 90px;
+}
+
+.article-writeBox{
+    width: 290px;
+    position:relative;
+}
+
+.article-userId{
+    font-weight:bolder;
+    position:relative;
+    margin-bottom: 10px;
+    
+}
+
+.article-userContent, .like-count{
+    font-weight:200;
+}
+
+.like-count{
+    font-size:0.8rem;
+}
+
+.likeBtn{
+    font-size:20px;
+    font-weight: 400;
+}
+
+.likeBtn:hover{
+    color:#Ceb5d3;
+}
+
+.article-likes{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
