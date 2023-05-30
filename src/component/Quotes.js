@@ -57,7 +57,7 @@ useEffect(() => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const randomQuote = quotes[randomIndex];
     setQuote(randomQuote);
-    }, [10000]); // 5초마다 명언 변경
+    }, [10000]); // 10초마다 명언 변경
 
     return () => {
     clearInterval(interval);

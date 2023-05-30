@@ -61,7 +61,7 @@ function Weather() {
 
 const getWeatherIcon = (weather) => {
     switch (weather) {
-        case 'Clouds':
+        case 'Cloud':
         return <WiCloud />;
         case 'Sunny':
         return <WiDaySunny />;
