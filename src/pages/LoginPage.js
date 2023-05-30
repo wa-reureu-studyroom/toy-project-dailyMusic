@@ -5,6 +5,7 @@ import GoogleBtn from '../assets/ButtonGoogle.png';
 import FacebookBtn from '../assets/ButtonFacebook.png';
 import KakaoBtn from '../assets/ButtonKakao.png';
 import NaverBtn from '../assets/ButtonNaver.png';
+import SignUpLoding from '../assets/SingupLoding.png';
 
 
 const LoginPage = () => {
@@ -17,6 +18,10 @@ const LoginPage = () => {
     const [isIDPlaceholder, setIsIDPlaceholder] = useState(true);
     const [isPwPlaceholder, setIsPwPlaceholder] = useState(true);
     const navigate = useNavigate();
+    
+    const REST_API_KEY = '백엔드한테 달라하자1';
+    const REDIRECT_URI = '백엔드한테 달라하자2';
+    const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
     const changeIDValue = (e) => {
         setIsLoginInfo({
@@ -42,6 +47,10 @@ const LoginPage = () => {
         navigate('/');
     }
 
+    const handleKakaoLogin = () => {
+        window.location.href = link;
+    }
+
     return (
         <section className='loginPageEntire'>
             <div className='loginLeft'>
@@ -53,12 +62,13 @@ const LoginPage = () => {
                     <div className='loginInputAll'>
                         <input className='loginInput' type='text' placeholder={isIDPlaceholder ? 'ID' : ''} value={isLoginInfo.id} onChange={changeIDValue} onFocus={() => {setIsIDPlaceholder(false)}} onBlur={() => {setIsIDPlaceholder(true)}}></input>
                         <input className='loginInput' type='text' placeholder={isPwPlaceholder ? 'Password' : ''} value={isLoginInfo.pw} onChange={changePWValue} onFocus={() => {setIsPwPlaceholder(false)}} onBlur={() => {setIsPwPlaceholder(true)}}></input>
+                        <img className='signupIcon' src={SignUpLoding} alt="signupLoadingIcon" />
                     </div>
                     <span className='loginCnt loginSelect' >OR</span>
                     <ul className='SSOList'>
                         <li className='loginSSO'><img src={GoogleBtn} alt="GoogleButton" /></li>
                         <li className='loginSSO'><img src={FacebookBtn} alt="FacebookButton" /></li>
-                        <li className='loginSSO'><img src={KakaoBtn} alt="KakaoButton" /></li>
+                        <li className='loginSSO' onClick={handleKakaoLogin}><img src={KakaoBtn} alt="KakaoButton" /></li>
                         <li className='loginSSO'><img src={NaverBtn} alt="NaverButton" /></li>
                     </ul>
                     <p className='loginCnt'>not a member? Be our Member!!</p>

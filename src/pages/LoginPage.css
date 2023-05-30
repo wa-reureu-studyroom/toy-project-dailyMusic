@@ -62,6 +62,7 @@
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
+    position: relative;
 }
 
 .loginInput{
@@ -75,6 +76,12 @@
 
 .loginInput:focus{
     outline: none;
+}
+
+.signupIcon{
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
 }
 
 .loginSSO{
