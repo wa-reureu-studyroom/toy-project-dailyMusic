@@ -1,0 +1,81 @@
+/*HEADER*/
+.header-container{
+    height: 120px;
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    padding: 37px 25px;
+    align-items:center;
+}
+
+.header-container div{
+    cursor:pointer;
+}
+
+#logoIcon{
+    width: 50px;
+    height: 50px;
+}
+.header-icon{
+    font-weight:100;
+    color:white;
+}
+
+/*HEADER-hamburger-modal*/
+.header-linkModal{
+    background-color: white;
+    padding: 20px 10px;
+    position: absolute;
+    left:0;
+    top:30px;
+    width: 70px;
+    height: 300px;
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header-linkModal button{
+    background-color: white;
+    cursor:pointer;
+    border:none;
+}
+
+.modalIcon{
+    font-size: 30px;
+    color: black;
+    background-color:inherit;
+}
+
+.modalIcon:hover{
+    color:#Ceb5d3;
+}
+
+/*HEADER-user-modal*/
+.header-userModal{
+    padding: 5px;
+    position: absolute;
+    right: 30px;
+    top: 70px;
+    display: flex;
+    flex-direction: column;
+    width:150px;
+    height: 120px;
+    justify-content: space-between;
+}
+
+.header-userModal button{
+    background-color:white;
+    border:none;
+    font-size: 16px;
+    cursor:pointer;
+    padding: 20px 5px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.10), 0 15px 12px rgba(0,0,0,0.10);
+}
+
+.header-userModal button:hover{
+    background-color: #435676;
+}
+
+/*FOOTER*/
