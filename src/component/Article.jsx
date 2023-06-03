@@ -1,12 +1,13 @@
 import './Article.css';
-import dummyDatas from '../datas/dummydata';
+// import dummyDatas from '../datas/dummydata';
 import {useState} from 'react'
 import userImg01 from '../assets/userImg01.png';
 import {FiThumbsUp} from 'react-icons/fi';
 
-const Article = () => {
-    const [datas, setData] = useState(dummyDatas);
-    const data = datas[0];
+const Article = ({articles}) => {
+    const [datas, setDatas] = useState(articles);
+    // const data = datas[0];
+
 
     return (
         <div className="article-wrapper">
