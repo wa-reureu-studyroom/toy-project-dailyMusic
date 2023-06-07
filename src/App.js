@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/Main';
@@ -7,7 +8,7 @@ import Header from './component/Header';
 import MusicPage from './pages/MusicPage';
 import Community from './pages/Community';
 import MyPage from './pages/MyPage';
-
+import LoginPage from './pages/LoginPage';
 
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
 
   return (
     <BrowserRouter>
+      <div className='loginPage'>
+        <LoginPage />
+      </div>
       <div className="container">
         <Header />
         <Routes>
@@ -32,7 +36,6 @@ function App() {
           <Route path="/mypage" element={<MyPage />} />
         </Routes>
       </div>
-      
     </BrowserRouter>
   );
 }
