@@ -3,8 +3,8 @@ import './Header.css';
 import {TbMenu2} from 'react-icons/tb';
 import {HiOutlineHome, HiOutlinePlayCircle, HiOutlineUserCircle, 
     HiOutlineChatBubbleLeftRight, HiOutlineSquares2X2, HiOutlineChevronDoubleLeft} from 'react-icons/hi2';
-import logo from '../logo.svg';
-import { BrowserRouter , Link} from 'react-router-dom';
+import {DiGithubBadge} from 'react-icons/di';
+import {Link} from 'react-router-dom';
 
 const Header = () => {
     const [modal, setModal] = useState(false);
@@ -31,7 +31,7 @@ const Header = () => {
                     </div>
                  : null}
 
-            <div className="header-icon"><img id="logoIcon" src={logo} alt="로고"/></div>
+            <div className="header-icon"><DiGithubBadge className="logoIcon"/></div>
             <div  onClick={isClickUser}><HiOutlineUserCircle className="header-icon" size="30"/></div>
             {userModal ? 
                 <div className="header-userModal">
