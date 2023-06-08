@@ -13,29 +13,35 @@ import LoginPage from './pages/LoginPage';
 
 function App() {
   const [datas, setDatas] = useState([]);
+  const [isLogin, setIsLogin] = useState(false);
 
-  const url = "http://localhost:3001/articles";
+  const handleLogin = () => {
+    setIsLogin(!isLogin)
+  }
 
-  useEffect (() => {
-    axios.get(url)
-    .then((res) => console.log(res)) 
-    .catch((error) => console.log(error))
-  }, [])
-
+  useEffect(() => {
+    axios.get('http://localhost:3001/articles')
+      .then((response) => setDatas(response.data))
+      .catch((error) => console.log(error));
+  }, []);
+  
   return (
     <BrowserRouter>
-      <div className='loginPage'>
-        <LoginPage />
-      </div>
-      <div className="container">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Main datas={datas} />} />
-          <Route path="/musicpage" element={<MusicPage />} />
-          <Route path="/community" element={<Community />} />
-          <Route path="/mypage" element={<MyPage />} />
-        </Routes>
-      </div>
+        {isLogin ? (
+          <div className="container">
+            <Header />
+            <Routes>
+              <Route path="/" element={<Main datas={datas} />} />
+              <Route path="/musicpage" element={<MusicPage />} />
+              <Route path="/community" element={<Community />} />
+              <Route path="/mypage" element={<MyPage />} />
+            </Routes>
+          </div>
+        ) : (
+          <div className='loginPage'>
+            <LoginPage onLogin={handleLogin}/>
+          </div>
+        )}
     </BrowserRouter>
   );
 }
