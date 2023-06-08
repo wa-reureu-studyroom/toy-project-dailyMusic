@@ -5,7 +5,6 @@ import {HiOutlineHome, HiOutlinePlayCircle, HiOutlineUserCircle,
     HiOutlineChatBubbleLeftRight, HiOutlineSquares2X2, HiOutlineChevronDoubleLeft} from 'react-icons/hi2';
 import {DiGithubBadge} from 'react-icons/di';
 import {Link} from 'react-router-dom';
-import { BrowserRouter , Link} from 'react-router-dom';
 
 const Header = () => {
     const [modal, setModal] = useState(false);
