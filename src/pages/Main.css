@@ -1,3 +1,18 @@
-h1{
-    color:white;
+.main-container{
+    color: white;
+}
+
+.main-playlist-section{
+    margin: 0 83px;
+    background-color: rgba(255, 255, 0, 0.528);
+}
+
+.main-api-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid white;
+    justify-content: space-between;
+    margin: 92px 83px;
+    background-color: rgba(240, 211, 216, 0.643);
 }
