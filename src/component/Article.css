@@ -46,13 +46,15 @@
     font-size:0.8rem;
 }
 
+/*좋아요 버튼*/
 .likeBtn{
     font-size:20px;
-    font-weight: 400;
+    font-weight: 400; 
+    cursor:pointer;
 }
 
 .likeBtn:hover{
-    color:#Ceb5d3;
+    color:#b03ac7;
 }
 
 .article-likes{

@@ -9,7 +9,12 @@ import SignUpLoding from '../assets/SingupLoding.png';
 // import KakaoLogin from '../components/KakaoLogin';
 
 
-const LoginPage = () => {
+const LoginPage = ({onLogin}) => {
+
+    const handleMoveMain = () => {
+        onLogin();
+        console.log('hey');
+    }
 
     const [isLoginInfo, setIsLoginInfo] = useState({
         id : '',
@@ -71,7 +76,7 @@ const LoginPage = () => {
                     <div className='loginInputAll'>
                         <input className='loginInput' type='text' placeholder={isIDPlaceholder ? 'ID' : ''} value={isLoginInfo.id} onChange={changeIDValue} onFocus={() => {setIsIDPlaceholder(false)}} onBlur={() => {setIsIDPlaceholder(true)}}></input>
                         <input className='loginInput' type='text' placeholder={isPwPlaceholder ? 'Password' : ''} value={isLoginInfo.pw} onChange={changePWValue} onFocus={() => {setIsPwPlaceholder(false)}} onBlur={() => {setIsPwPlaceholder(true)}}></input>
-                        <img className='signupIcon' src={SignUpLoding} alt="signupLoadingIcon" />
+                        <img className='signupIcon' onClick={handleMoveMain} src={SignUpLoding} alt="signupLoadingIcon" />
                     </div>
                     <span className='loginCnt loginSelect' >OR</span>
                     <ul className='SSOList'>
