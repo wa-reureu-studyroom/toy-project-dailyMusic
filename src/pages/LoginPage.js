@@ -6,9 +6,15 @@ import FacebookBtn from '../assets/ButtonFacebook.png';
 import KakaoBtn from '../assets/ButtonKakao.png';
 import NaverBtn from '../assets/ButtonNaver.png';
 import SignUpLoding from '../assets/SingupLoding.png';
+// import KakaoLogin from '../components/KakaoLogin';
 
 
-const LoginPage = () => {
+const LoginPage = ({onLogin}) => {
+
+    const handleMoveMain = () => {
+        onLogin();
+        console.log('hey');
+    }
 
     const [isLoginInfo, setIsLoginInfo] = useState({
         id : '',
@@ -19,9 +25,11 @@ const LoginPage = () => {
     const [isPwPlaceholder, setIsPwPlaceholder] = useState(true);
     const navigate = useNavigate();
     
-    const REST_API_KEY = '백엔드한테 달라하자1';
-    const REDIRECT_URI = '백엔드한테 달라하자2';
+    const REST_API_KEY = '89a076fb0c2d5c0080a342b9826307be';
+    const REDIRECT_URI = 'http://localhost:3000/auth';
     const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+    const code = new URL(window.location.href).searchParams.get("code");
+    console.log(code);
 
     const changeIDValue = (e) => {
         setIsLoginInfo({
@@ -51,6 +59,12 @@ const LoginPage = () => {
         window.location.href = link;
     }
 
+    // 프론트에서 REST API KEY랑 REDIRECT URI로 인가코드를 발급
+    // 발급받은 인가코드를 백엔드로 보냄
+    // 백엔드는 인가코드로 액세스 토큰을 발급
+    // 액세스 토큰으로 유저정보를 조회해서 DB 저장
+    // 백엔드에서 JWT 토큰을 프론트로 전달하면 로그인 과정 끝.
+
     return (
         <section className='loginPageEntire'>
             <div className='loginLeft'>
@@ -62,7 +76,7 @@ const LoginPage = () => {
                     <div className='loginInputAll'>
                         <input className='loginInput' type='text' placeholder={isIDPlaceholder ? 'ID' : ''} value={isLoginInfo.id} onChange={changeIDValue} onFocus={() => {setIsIDPlaceholder(false)}} onBlur={() => {setIsIDPlaceholder(true)}}></input>
                         <input className='loginInput' type='text' placeholder={isPwPlaceholder ? 'Password' : ''} value={isLoginInfo.pw} onChange={changePWValue} onFocus={() => {setIsPwPlaceholder(false)}} onBlur={() => {setIsPwPlaceholder(true)}}></input>
-                        <img className='signupIcon' src={SignUpLoding} alt="signupLoadingIcon" />
+                        <img className='signupIcon' onClick={handleMoveMain} src={SignUpLoding} alt="signupLoadingIcon" />
                     </div>
                     <span className='loginCnt loginSelect' >OR</span>
                     <ul className='SSOList'>

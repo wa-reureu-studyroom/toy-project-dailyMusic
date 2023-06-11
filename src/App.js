@@ -1,6 +1,6 @@
+import {useEffect, useState} from 'react';
+import axios from 'axios';
 import React from 'react';
-
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/Main';
@@ -8,38 +8,40 @@ import Header from './component/Header';
 import MusicPage from './pages/MusicPage';
 import Community from './pages/Community';
 import MyPage from './pages/MyPage';
-
+import LoginPage from './pages/LoginPage';
 
 
 function App() {
+  const [datas, setDatas] = useState([]);
+  const [isLogin, setIsLogin] = useState(false);
+
+  const handleLogin = () => {
+    setIsLogin(!isLogin)
+  }
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/articles')
+      .then((response) => setDatas(response.data))
+      .catch((error) => console.log(error));
+  }, []);
+  
   return (
     <BrowserRouter>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-      <div className="container">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/musicpage" element={<MusicPage />} />
-          <Route path="/community" element={<Community />} />
-          <Route path="/mypage" element={<MyPage />} />
-        </Routes>
-      </div>
-      
+        {isLogin ? (
+          <div className="container">
+            <Header />
+            <Routes>
+              <Route path="/" element={<Main datas={datas} />} />
+              <Route path="/musicpage" element={<MusicPage />} />
+              <Route path="/community" element={<Community />} />
+              <Route path="/mypage" element={<MyPage />} />
+            </Routes>
+          </div>
+        ) : (
+          <div className='loginPage'>
+            <LoginPage onLogin={handleLogin}/>
+          </div>
+        )}
     </BrowserRouter>
   );
 }
