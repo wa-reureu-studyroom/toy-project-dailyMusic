@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./NewItem.css";
-import PhjProfile from "../assets/PhjProfile.png";
+import ProfilePHJ from "../assets/ProfilePhj_big.png";
 import { FaRocket } from "react-icons/fa";
 import Dummy from "../datas/dummydata.json";
 
@@ -36,7 +36,7 @@ const NewItem = () => {
     return (
         <div className="newItemWrap">
             <div className="newItemCnt">
-                <img src={PhjProfile} alt="Phj 프로필 이미지" />
+                <img src={ProfilePHJ} alt="phj 프로필 이미지" />
                 <textarea className="writeCnt" type='text' onFocus={handleWriteCmt} onBlur={handleWriteCmt} onChange={changeWriteCmt} value={isWriteValue} placeholder={isClicked ? "" : "Write Here"} />
             </div>
             <div className="newItemBtn" onClick={submitWriteCmt}>

@@ -1,0 +1,76 @@
+
+.communityItemsWrap{
+    background-color: rgb(255, 255, 255, 0.21);
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 50px;
+    padding: 10px 20px;
+    height: 550px;
+    overflow-y: scroll;
+    color: #fff;
+}
+
+.communityItemsWrap::-webkit-scrollbar {
+    display: none;
+  }
+
+.communityItem{
+    background-color: rgb(255, 255, 255, 0.21);
+    width: 100%;
+    margin: 30px 0;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    height: 120px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.communityItem > div{
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.communityCnt{
+    height:100%;
+    line-height: 30px;
+    margin: 0 30px;
+    width: 70%;
+    font-size: 14px;
+}
+
+.communityCnt > span{
+    font-weight: 700;
+}
+
+.communityCnt > p{
+    font-weight: 100;
+}
+
+.closeBtn{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+.likeBtn{
+    text-align: center;
+    font-size: 17px;
+}
+
+.likeCount{
+    display: block;
+    font-size: 12px;
+}
+
+.editBtn{
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+}
+
+.button:hover{
+    cursor: pointer;
+    color: #bbb;
+}
